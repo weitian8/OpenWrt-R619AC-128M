@@ -43,8 +43,8 @@ on:
     - cron: 0 4 28 * *                 # 每月28日国际时间4点，北京时间中午12点执行(北京+8)
 #          分 时 日 月 周5  
 #点☆Star触发开始编译  
-  watch:                              # 监视操作
-    types: started                    # 点击 star 之后
+#  watch:                              # 监视操作
+#    types: started                    # 点击 star 之后
 
 env:
   REPO_URL: https://github.com/coolsnowwolf/lede     #编译固件源码链接（请勿修改）
