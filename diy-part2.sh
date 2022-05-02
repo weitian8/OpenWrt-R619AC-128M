@@ -24,3 +24,12 @@ sed -i 's@.*CYXluq4wUazHjmCDBCqXF*@#&@g' ./package/lean/default-settings/files/z
 
 # 修改默认主题Modify default THEME
 # sed -i 's/luci-theme-bootstrap/luci-theme-ATMaterial/g' ./feeds/luci/collections/luci/Makefile
+
+##########
+# Modify the version number
+sed -i "s/OpenWrt /LBCei build $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" package/lean/default-settings/files/zzz-default-settings
+
+# Add kernel build user
+[ -z $(grep "CONFIG_KERNEL_BUILD_USER=" .config) ] &&
+    echo 'CONFIG_KERNEL_BUILD_USER="LBCei"' >>.config ||
+    sed -i 's@\(CONFIG_KERNEL_BUILD_USER=\).*@\1$"LBCei"@' .config
